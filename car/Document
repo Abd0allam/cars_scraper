@@ -1,0 +1,16 @@
+This code is a Django management command that scrapes car data from the website syarah.com and saves it to the database. The code uses the following Python libraries:
+
+    json: Used to work with JSON data.
+    re: Used for regular expression matching and substitution.
+    django.core.management.base: Contains the BaseCommand class used to create management commands for Django.
+    cards.models: Contains the models for the UsedCars and NewdCars tables in the database.
+    selenium: Used for browser automation.
+    bs4: Used for parsing HTML and XML documents.
+
+The Command class is a subclass of BaseCommand and defines a handle method that is called when the management command is run. The handle method calls the two other methods in the class, scrape_used_cars and scrape_new_cars, to scrape data for used cars and new cars, respectively.
+
+The scrape_used_cars method uses Selenium to automate a Firefox browser and navigate to the website. It finds the menu icon and clicks on it to switch to the English version of the website. It then clicks on the "Find All Cars" link and waits for the page to load. It scrolls the page down and then finds all elements with class name 'SearchCard-module__card'. For each card, it extracts the car name, car price, image URL, and odometer reading, and stores the data in a dictionary. It then returns a list of allthe car data dictionaries.
+
+The scrape_new_cars method also uses Selenium to automate a Firefox browser and navigate to the website. It finds the "New" tab and clicks on it, and then clicks on the "Browse All New Cars" link. It waits for the page to load and scrolls the page down. It then finds all elements with class name 'SearchCard-module__card'. For each card, it extracts the car name, car price, and image URL, and stores the data in a dictionary. It then returns a list of all the car data dictionaries.
+
+Finally, the handle method saves the scraped data to the database by creating new UsedCars and NewdCars objects for each car and setting their attributes to the scraped data. The objects are saved to the database using the save method.
