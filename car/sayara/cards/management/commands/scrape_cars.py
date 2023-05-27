@@ -1,4 +1,3 @@
-import json
 import re
 from django.core.management.base import BaseCommand
 from cards.models import UsedCars, NewdCars
@@ -62,7 +61,7 @@ class Command(BaseCommand):
 
         # Scroll the page step by step for 5 seconds
         start_time = time.time()
-        while time.time() - start_time < 5:
+        while time.time() - start_time < 200:
             driver.execute_script("window.scrollBy(0, 500);")
             time.sleep(1)
 
@@ -142,7 +141,7 @@ class Command(BaseCommand):
         start_time = time.time()
 
         # Scroll the page step by step for 5 seconds
-        while time.time() - start_time < 5:
+        while time.time() - start_time < 200:
             # Scroll the page down by a certain amount
             driver.execute_script("window.scrollBy(0, 500);")
             # Wait for a short period before scrolling again

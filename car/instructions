@@ -1,0 +1,22 @@
+Windows
+
+    1-Open the command prompt by pressing Win + R, then type cmd and hit enter.
+    2-Navigate to the directory where your virtual environment is located using the cd command. For example: cd C:\Users\YourName\Environments\car
+    3-Activate the virtual environment by running the command Scripts\activate.
+    4-Once the virtual environment is activated, install the requirements by running the command pip install -r requirements.txt.
+    5-Change directory to the sayara project by running the command cd sayara.
+    6-Create a superuser by running the command py manage.py createsuperuser and following the prompts.
+    7-Scrape cars by running the command py manage.py scrape_cars.
+    8-Finally, run the server by running the command py manage.py runserver.
+
+Linux
+
+    1-Open a terminal window.
+    2-Navigate to the directory where your virtual environment is located using the cd command. For example: cd ~/Environments/car
+    3-Activate the virtual environment by running the command source bin/activate.
+    4-Once the virtual environment is activated, install the requirements by running the command pip install -r requirements.txt.
+    5-Change directory to the sayara project by running the command cd sayara.
+    6-Create a superuser by running the command python3 manage.py createsuperuser and following the prompts.
+    7-Scrape cars by running the command python3 manage.py scrape_cars.
+    8-Finally, run the server by running the command python3 manage.py runserver.
+
