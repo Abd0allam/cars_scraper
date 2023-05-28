@@ -1,22 +1,83 @@
 Windows
 
-    1-Open the command prompt by pressing Win + R, then type cmd and hit enter.
-    2-Navigate to the directory where your virtual environment is located using the cd command. For example: cd C:\Users\YourName\Environments\car
-    3-Activate the virtual environment by running the command Scripts\activate.
-    4-Once the virtual environment is activated, install the requirements by running the command pip install -r requirements.txt.
-    5-Change directory to the sayara project by running the command cd sayara.
-    6-Create a superuser by running the command py manage.py createsuperuser and following the prompts.
-    7-Scrape cars by running the command py manage.py scrape_cars.
-    8-Finally, run the server by running the command py manage.py runserver.
+
+    Postgresql database : 
+
+    1-Download the PostgreSQL installer from the official website: https://www.postgresql.org/download/windows/
+    2-Run the installer and follow the prompts to install PostgreSQL on your system.
+    3-During the installation, you will be prompted to set a password for the default PostgreSQL user "postgres". Choose a strong password and remember it.
+    4-After the installation is complete, open the pgAdmin tool that comes with PostgreSQL.
+    5-In the pgAdmin tool, right-click on "Servers", select "Create", then "Server".
+    6-In the "General" tab, give the server a name, and in the "Connection" tab, fill in the following information:
+
+           - Host: localhost
+           - Port: 5432
+           - Maintenance database: postgres
+           - Username: postgres
+           - Password: the password you set during installation
+
+    7-Click "Save" to create the server.
+    8-Right-click on the server you just created, select "Create", then "Database".
+    9-Give the database a name, for example "car".
+    10-Click "Save" to create the database.
+    11-Right-click on the database you just created, select "Create", then "Login/Group Role".
+    12-In the "General" tab, give the login a name, for example "car_user", and set a password for it.
+    13-In the "Role privileges" tab, grant the login the necessary privileges for the "car" database. 
+                                    For example, you can grant it the "Connect" and "Create" privileges.
+    14-Click "Save" to create the login.
+
+    instead of instructions (6 to 14) you can use cmd : 
+        
+            1-Open the command prompt by pressing Win + R, then type cmd and hit enter.
+            2-Switch to the default PostgreSQL user by running the command: psql -U postgres
+            3-Enter the password you set during installation when prompted.
+            4-Create a new user for the database by running the command: CREATE USER car_user WITH PASSWORD 'password';
+            5-Replace 'password' with a strong password of your choice.
+            6-Create the "car" database and grant the necessary privileges to the "car_user" by running the command:
+            7-CREATE DATABASE car OWNER car_user;
+            8-Grant the necessary privileges to the "car_user" by running the command:
+            9-GRANT ALL PRIVILEGES ON DATABASE car TO car_user;
+            10-Exit the PostgreSQL shell by running the command: \q
+
+
+    
+    Django:
+
+        1-Open the command prompt by pressing Win + R, then type cmd and hit enter.
+        2-Navigate to the directory where your virtual environment is located using the cd command. For example: cd C:\Users\YourName\Environments\car
+        3-Activate the virtual environment by running the command Scripts\activate.
+        4-Once the virtual environment is activated, install the requirements by running the command pip install -r requirements.txt.
+        5-Change directory to the sayara project by running the command cd sayara.
+        6-Create a superuser by running the command py manage.py createsuperuser and following the prompts.
+        7-Scrape cars by running the command py manage.py scrape_cars.
+        8-Finally, run the server by running the command py manage.py runserver.
+
+
 
 Linux
 
-    1-Open a terminal window.
-    2-Navigate to the directory where your virtual environment is located using the cd command. For example: cd ~/Environments/car
-    3-Activate the virtual environment by running the command source bin/activate.
-    4-Once the virtual environment is activated, install the requirements by running the command pip install -r requirements.txt.
-    5-Change directory to the sayara project by running the command cd sayara.
-    6-Create a superuser by running the command python3 manage.py createsuperuser and following the prompts.
-    7-Scrape cars by running the command python3 manage.py scrape_cars.
-    8-Finally, run the server by running the command python3 manage.py runserver.
+
+    Postgresql database :
+
+        1-Install PostgreSQL using your package manager. For example, on Ubuntu, you can run the command: sudo apt-get install postgresql
+        2-After the installation is complete, switch to the default PostgreSQL user by running the command: sudo -u postgres psql
+        3-In the PostgreSQL shell, set a password for the default PostgreSQL user "postgres" by running the command: \password postgres
+        4-Choose a strong password and remember it.
+        5-Exit the PostgreSQL shell by running the command: \q
+        6-Create a new PostgreSQL user for the "car" database by running the command: sudo -u postgres createuser car_user --interactive
+        7-Follow the prompts to set a password for the user and grant it the necessary privileges for the "car" database.
+                                  For example, you can grant it the "Connect" and "Create" privileges.
+        8-Create the "car" database by running the command: sudo -u postgres createdb car
+ 
+
+    Django:
+
+        1-Open a terminal window.
+        2-Navigate to the directory where your virtual environment is located using the cd command. For example: cd ~/Environments/car
+        3-Activate the virtual environment by running the command source bin/activate.
+        4-Once the virtual environment is activated, install the requirements by running the command pip install -r requirements.txt.
+        5-Change directory to the sayara project by running the command cd sayara.
+        6-Create a superuser by running the command python3 manage.py createsuperuser and following the prompts.
+        7-Scrape cars by running the command python3 manage.py scrape_cars.
+        8-Finally, run the server by running the command python3 manage.py runserver.
 
