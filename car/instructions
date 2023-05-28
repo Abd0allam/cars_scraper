@@ -38,6 +38,9 @@ Windows
             8-Grant the necessary privileges to the "car_user" by running the command:
             9-GRANT ALL PRIVILEGES ON DATABASE car TO car_user;
             10-Exit the PostgreSQL shell by running the command: \q
+            
+
+        Modify the datadase section in /car/sayara/sayara/settings.py   ==> with database you created .
 
 
     
@@ -69,6 +72,9 @@ Linux
                                   For example, you can grant it the "Connect" and "Create" privileges.
         8-Create the "car" database by running the command: sudo -u postgres createdb car
  
+
+        Modify the datadase section in /car/sayara/sayara/settings.py   ==> with database you created .
+
 
     Django:
 
